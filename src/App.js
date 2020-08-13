@@ -10,7 +10,7 @@ class App extends React.Component {
 
   componentDidMount = async () => {
     const data = await fetchCycles()
-
+    console.log(data)
     this.setState({
       motorcycles: data.body
     })
@@ -23,7 +23,7 @@ class App extends React.Component {
       {
         this.state.motorcycles.map((motorcycle) => {
           return <div className='bike-box'>
-            {`model - ${motorcycle.model}`} {`| make - ${motorcycle.manufacturer}`} {`| type ${motorcycle.type}`}  {motorcycle.is_fast} {`| engine size - ${motorcycle.ccs}`}
+            {`model - ${motorcycle.model}`} {`| make - ${motorcycle.manufacturer}`} {`| type ${motorcycle.type}`}  {`| this bike is fast! - ${motorcycle.is_fast}`} {`| engine size - ${motorcycle.ccs}`}
             </div>
         })
       }
