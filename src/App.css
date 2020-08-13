@@ -1,5 +1,21 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightslategray;
+}
+
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid black 5px;
+  border-radius: 15px;
+  width: 40vw;
+  margin-top: 100px;
 }
 
 .App-logo {
@@ -35,4 +51,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.bike-box {
+  background-color: lightgray;
+  max-width: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
 }

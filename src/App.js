@@ -1,26 +1,36 @@
+/* eslint-disable */
 import React from 'react';
-import logo from './logo.svg';
+import { fetchCycles } from './motorcycle-api.js';
 import './App.css';
 
-function App() {
+class App extends React.Component {
+  state = {
+    motorcycles: []
+  }
+
+  componentDidMount = async () => {
+    const data = await fetchCycles()
+
+    this.setState({
+      motorcycles: data.body
+    })
+  }
+
+  render() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Motorcycles:</h2>
+      {
+        this.state.motorcycles.map((motorcycle) => {
+          return <div className='bike-box'>
+            {`model - ${motorcycle.model}`} {`| make - ${motorcycle.manufacturer}`} {`| type ${motorcycle.type}`}  {motorcycle.is_fast} {`| engine size - ${motorcycle.ccs}`}
+            </div>
+        })
+      }
+      
+        
     </div>
-  );
+  )
 }
-
+}
 export default App;
