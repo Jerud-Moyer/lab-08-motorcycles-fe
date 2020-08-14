@@ -39,7 +39,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  
 }
 
 .App-link {
@@ -56,7 +56,7 @@ body {
 }
 
 .bike-box {
-  background-color: lightgray;
+  background-color: #282c34;
   max-width: 55%;
   min-width: 50%;
   display: flex;
@@ -64,7 +64,18 @@ body {
   align-items: center;
   margin: 30px;
   padding: 20px;
+  color: crimson;
+  border-radius: 20px;
   
+  
+}
+
+h2 {
+  color: crimson;
+  text-shadow: 3px 3px #282c34;
+  background-color: #282c34;
+  padding: 10px;
+  border-radius: 20px;
 }
 main {
   display: grid;
@@ -96,5 +107,11 @@ main {
 
 .result-box {
   padding: 30px;
+  color: crimson;
+  text-shadow: 3px 3px 10px #282c34;
+}
+
+.rad {
+  text-shadow: 4px 4px 5px #282c34;
 }
 
