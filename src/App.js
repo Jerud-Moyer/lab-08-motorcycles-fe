@@ -1,36 +1,51 @@
-/* eslint-disable */
-import React from 'react';
-import { fetchCycles } from './motorcycle-api.js';
+import React, { Component } from 'react'
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+    Link
+} from 'react-router-dom';
+import ListPage from './ListPage.js';
+import CreatePage from'./CreatePage.js';
+import DetailPage from './DetailPage.js';
 import './App.css';
 
-class App extends React.Component {
-  state = {
-    motorcycles: []
-  }
+export default class App extends Component {
+    render() {
+        return (
+            <div>
+                 <header className="App-header">    
+                <Router>
+                    <main>
 
-  componentDidMount = async () => {
-    const data = await fetchCycles()
-    console.log(data)
-    this.setState({
-      motorcycles: data.body
-    })
-  }
-
-  render() {
-  return (
-    <div className="App">
-      <h2>Motorcycles:</h2>
-      {
-        this.state.motorcycles.map((motorcycle) => {
-          return <div className='bike-box'>
-            {`model - ${motorcycle.model}`} {`| make - ${motorcycle.manufacturer}`} {`| type ${motorcycle.type}`}  {`| this bike is fast! - ${motorcycle.is_fast}`} {`| engine size - ${motorcycle.ccs}`}
+                    <div className="sidebar">
+                    <Link className='links' to='/create'>Create</Link>
+                    <Link className='links' to='/'>List</Link>
+                    </div>
+                    <div className="content">
+                    <Switch>
+                        <Route 
+                            path="/" 
+                            exact
+                            render={(routerProps) => <ListPage {...routerProps} />} 
+                        />
+                        <Route 
+                            path="/create" 
+                            exact
+                            render={(routerProps) => <CreatePage {...routerProps} />} 
+                        />
+                        <Route 
+                            path="/detail/:id" 
+                            exact
+                            render={(routerProps) => <DetailPage {...routerProps} />} 
+                        />
+                    </Switch>
+                    </div>
+                    
+                    </main>
+                    </Router>
+            </header>
             </div>
-        })
-      }
-      
-        
-    </div>
-  )
+        )
+    }
 }
-}
-export default App;

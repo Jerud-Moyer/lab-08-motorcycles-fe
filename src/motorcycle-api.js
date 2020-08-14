@@ -2,7 +2,7 @@
 
 import request from 'superagent';
 
-const url = 'https://dry-headland-73940.herokuapp.com';
+const url = process.env.REACT_APP_API_URL;
 
 export function fetchCycles() {
     return request.get(`${url}/motorcycles`);
@@ -10,4 +10,8 @@ export function fetchCycles() {
 
 export function fetchCycle(id) {
     return request.get(`${url}/motorcycles/${id}`);
+}
+
+export function createMotorcycle(motorcycleData) {
+    return request.post(`${url}/motorcycles`, motorcycleData)
 }

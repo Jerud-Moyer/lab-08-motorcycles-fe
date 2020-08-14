@@ -1,8 +1,6 @@
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  
+  
   background-color: lightslategray;
 }
 
@@ -12,10 +10,14 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+ 
   border: solid black 5px;
   border-radius: 15px;
-  width: 40vw;
-  margin-top: 100px;
+  background-image: url('mt10cropped..jpeg');
+  
+  
+  
+ 
 }
 
 .App-logo {
@@ -56,8 +58,43 @@ body {
 .bike-box {
   background-color: lightgray;
   max-width: 55%;
+  min-width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 30px;
+  padding: 20px;
+  
 }
+main {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  width: 100%;
+  min-height: 100vh; 
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+
+}
+.links {
+  color: crimson;
+  position: relative;
+  margin: 20px;
+
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  background-image: url('mt10..jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.result-box {
+  padding: 30px;
+}
+
