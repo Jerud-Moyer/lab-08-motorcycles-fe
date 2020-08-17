@@ -24,6 +24,7 @@ export default class App extends Component {
                     </div>
                     <div className="content">
                     <Switch>
+                    
                         <Route 
                             path="/" 
                             exact

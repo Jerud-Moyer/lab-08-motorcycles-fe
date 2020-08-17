@@ -111,6 +111,29 @@ main {
   text-shadow: 3px 3px 10px #282c34;
 }
 
+.create-content {
+  padding: 30px;
+  color: crimson;
+  text-shadow: 3px 3px 10px #282c34;
+}
+
+.create-form {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+label {
+  margin: 7px;
+}
+
+button {
+  margin: 7px;
+  max-width: 25%;
+  color: whitesmoke;
+  background-color: crimson;
+}
+
 .rad {
   text-shadow: 4px 4px 5px #282c34;
 }

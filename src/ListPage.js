@@ -24,7 +24,7 @@ class App extends React.Component {
       {
         this.state.motorcycles.map((motorcycle) => {
           return <Link className='bike-box' to={`/detail/${motorcycle.id}`} key={`${motorcycle.id}-${motorcycle.model}`}>
-            {`model - ${motorcycle.model}`} <br/> {`make - ${motorcycle.manufacturer}`}<br/> {`type - ${motorcycle.type}`}<br/>  {`this bike is fast! - ${motorcycle.is_fast}`}<br/> {`engine size - ${motorcycle.ccs}`}
+            {`model - ${motorcycle.model}`} <br/> {`make - ${motorcycle.manufacturer}`}<br/> {`type - ${motorcycle.type}`}<br/>  {`this bike is fast! - ${motorcycle.is_fast}`}<br/> {`engine type - ${motorcycle.engine}`}<br/> {`engine size - ${motorcycle.ccs}`}
             </Link>
         })
       }
