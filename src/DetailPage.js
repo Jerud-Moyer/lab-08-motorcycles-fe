@@ -9,7 +9,7 @@ export default class DetailPage extends Component {
         manufacturer: '',
         type: '',
         is_fast: false,
-        engine_id: 0,
+        engine_id: 1,
         engines: [],
         ccs: 0,
 
@@ -31,11 +31,12 @@ export default class DetailPage extends Component {
             type: data.body.type,
             is_fast: data.body.is_fast,
             ccs: data.body.ccs,
-            engine: matchingEngine.type,
+            engine: matchingEngine.id,
         })
     }
 
     handleSubmit = async (e) => {
+        console.log(this.state.engine_id)
         e.preventDefault();
 
         try {
@@ -49,23 +50,23 @@ export default class DetailPage extends Component {
                     ccs: this.state.ccs,
                     engine_id: this.state.engine_id,
                 }
-            );
-
-            const updatedMotorcycle = await fetchCycle(this.props.match.params.id)
-
-            this.setState({
-                model: '',
-                manufacturer: '',
-                type: '',
-                is_fast: false,
-                ccs: 0,
-                engine_id: 1,
-                motorcycle: updatedMotorcycle.body,
-            });
-            this.props.history.push('/');
-        } catch {
-            console.log(e.message)
-        }
+                );
+                
+                const updatedMotorcycle = await fetchCycle(this.props.match.params.id)
+                
+                this.setState({
+                    model: '',
+                    manufacturer: '',
+                    type: '',
+                    is_fast: false,
+                    ccs: 0,
+                    engine_id: 0,
+                    motorcycle: updatedMotorcycle.body,
+                });
+                this.props.history.push('/');
+            } catch {
+                console.log(e.message)
+            }
     }
 
     handleModelChange = e => {
