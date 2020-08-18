@@ -5,11 +5,11 @@ import { fetchCycle, deleteMotorcycle, updateMotorcycle, fetchEngines } from './
 export default class DetailPage extends Component {
     state = {
         motorcycle: {},
-        model: 'anybike',
-        manufacturer: 'anymake',
-        type: 'anytype',
+        model: '',
+        manufacturer: '',
+        type: '',
         is_fast: false,
-        engine_id: 1,
+        engine_id: 0,
         engines: [],
         ccs: 0,
 
@@ -22,7 +22,7 @@ export default class DetailPage extends Component {
         const enginesData = await fetchEngines();
 
         console.log(enginesData.body)
-        const matchingEngine = enginesData.body.find(engine => engine.id === Number(this.props.match.params.id));
+        const matchingEngine = enginesData.body.find(engine => engine.id === Number(data.body.engine_type_id));
         this.setState({
             engines: enginesData.body,
             motorcycle: data.body,
@@ -59,9 +59,10 @@ export default class DetailPage extends Component {
                 type: '',
                 is_fast: false,
                 ccs: 0,
-                motorcycle: updateMotorcycle.body,
+                engine_id: 1,
+                motorcycle: updatedMotorcycle.body,
             });
-            this.props.history.push('/ListPage');
+            this.props.history.push('/');
         } catch {
             console.log(e.message)
         }
@@ -130,9 +131,9 @@ export default class DetailPage extends Component {
                         </label>
                         <label>
                             Engine:
-                            <select onChange={this.handleEngineChange} value={this.state.engine}>
+                            <select onChange={this.handleEngineChange} value={this.state.engine_id}>
                                 {
-                                    this.state.engines.map((engine) => <option value={engine.id}>{engine.type}</option>)
+                                    this.state.engines.map((engine) => <option key={engine.id} value={engine.id}>{engine.type}</option>)
                                 }
                             </select>
                         </label>

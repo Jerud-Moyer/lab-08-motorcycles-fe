@@ -44,6 +44,7 @@ export default class CreatePage extends Component {
         ccs: 0,
         engine_id: 1
         });
+        console.log(state)
         this.props.history.push('/ListPage');
     
     } catch(e) {

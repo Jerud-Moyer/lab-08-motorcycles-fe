@@ -34,5 +34,5 @@ export function deleteMotorcycle(id) {
 }
 
 export function updateMotorcycle(id, updatedMotorcycle) {
-    return request.post(`${url}/motorcycles`, motorcycleData)
+    return request.put(`${url}/motorcycles/${id}`, updatedMotorcycle)
 }
